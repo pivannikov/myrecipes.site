@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+
+{#{% include 'inc/_search.html' %}#}
+
+<div class="row">
+    <div class="col-md-12 ms-3">
+        {% ifnotequal title 'A&Recipes' %}
+            <h3>{{ title }}</h3>
+        {% endifnotequal %}
+    </div>
+</div>
+<div class="row min-vh-100">
+    {% for post in posts %}
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 p-1">
+            <div class="card m-3 border-0 shadow">
+                <div class="wrap_images">
+                    {% if post.main_photo %}
+                        <a href="{{ post.get_absolute_url }}"><img src="{{ post.main_photo.url }}" alt="{{ post.title }}" class="img-fluid"></a>
+                    {% else %}
+                        <a href="{{ post.get_absolute_url }}"><img src="https://picsum.photos/350/465" alt="Image" class="img-fluid"></a>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h6 class="card-title">{{ post.title }}</h6>
+                    <div class="d-flex justify-content-between">
+                        <span><a class="text-muted" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></span>
+    {#                    <span class="text-muted">{{ post.created_at|date:"j E Y" }}</span>#}
+                    </div>
+                    <div>
+                        <span>
+                            {% if post.cooked %}
+                                <span>
+                                    <img src="{%  static 'images/cooked.png' %}" alt="" width="25px">
+                                </span>
+                            {% else %}
+                                <span>
+                                    <img src="{%  static 'images/cooked.png' %}" class="uncolored_img" alt="" width="20px">
+                                </span>
+                            {% endif %}
+                            {% if post.favorites %}
+                                <span>
+                                    <img src="{%  static 'images/favorites.png' %}" alt="" width="20px">
+                                </span>
+                            {% else %}
+                                <span>
+                                    <img src="{%  static 'images/favorites.png' %}" class="uncolored_img" alt="" width="20px">
+                                </span>
+                            {% endif %}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+
+{#{% include 'inc/_pagination.html' %}#}
+
+{% endblock %}
+

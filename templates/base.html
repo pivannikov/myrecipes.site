@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <link rel="icon" href="{% static 'images/allure-symbol.png' %}" type="image/x-icon">
+
+    <title>{% block title %}A&Recipes{% endblock %}</title>
+</head>
+<body class="bg-white">
+  <div class="container-fluid">
+
+    {#    main content #}
+    {% block content %}{% endblock %}
+    {#    end main content#}
+
+    <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+          <div class="container-fluid justify-content-start">
+            <a class="navbar-brand" href=""><img src="{% static 'images/cooked.png' %}" width="45px"></a>
+            <a class="navbar-brand" href=""><img src="{% static 'images/favorites.png' %}" width="45px"></a>
+            <a class="navbar-brand" href="#">Кладовая</a>
+          </div>
+        </nav>
+    </div>
+
+  </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- jQuery 1.8 or later, 33 KB -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
