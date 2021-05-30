@@ -1,4 +1,6 @@
 {% load static %}
+{% load menu %}
+{% load cache %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +10,23 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link rel="icon" href="{% static 'images/allure-symbol.png' %}" type="image/x-icon">
 
-    <title>{% block title %}A&Recipes{% endblock %}</title>
+    <title>{% block title %}Recipes{% endblock %}</title>
 </head>
 <body class="bg-white">
   <div class="container-fluid">
+
+    {% show_menu %}
 
     {#    main content #}
     {% block content %}{% endblock %}
     {#    end main content#}
 
     <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background: #e57373;">
           <div class="container-fluid justify-content-start">
-            <a class="navbar-brand" href=""><img src="{% static 'images/cooked.png' %}" width="45px"></a>
-            <a class="navbar-brand" href=""><img src="{% static 'images/favorites.png' %}" width="45px"></a>
-            <a class="navbar-brand" href="#">Кладовая</a>
+            <a class="navbar-brand" href="{% url 'cooked' %}"><img src="{% static 'images/cooked.png' %}" width="45px"></a>
+            <a class="navbar-brand" href="{% url 'favorites' %}"><img src="{% static 'images/favorites.png' %}" width="45px"></a>
+            <a class="navbar-brand" href="#">Cloud</a>
           </div>
         </nav>
     </div>

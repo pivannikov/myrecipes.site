@@ -7,8 +7,8 @@ from .models import *
 
 
 class PostAdminForm(forms.ModelForm):
-    ingredients = forms.CharField(label='Ингредиенты', widget=CKEditorUploadingWidget(), required=False)
-    content = forms.CharField(label='Описание', widget=CKEditorUploadingWidget(), required=False)
+    ingredients = forms.CharField(label='Ingredients', widget=CKEditorUploadingWidget(), required=False)
+    content = forms.CharField(label='Description', widget=CKEditorUploadingWidget(), required=False)
 
     class Meta:
         model = Post
@@ -38,6 +38,10 @@ class PostAdmin(admin.ModelAdmin):
     save_on_top = True
     readonly_fields = ('created_at', 'views')
     fields = ('title', 'slug', 'category', 'tags', 'favorites', 'cooked', 'ingredients', 'content', 'main_photo', 'is_published', 'views', 'created_at')
+
+    def save_model(self, request, obj, form, change):
+        obj.author = request.user
+        super().save_model(request, obj, form, change)
 
     def get_photo(self, obj):
         if obj.main_photo:

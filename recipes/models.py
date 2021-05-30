@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from django.urls import reverse
 
 
 class Category(models.Model):
@@ -9,6 +10,9 @@ class Category(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['title']
@@ -21,6 +25,9 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('tag', kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['title']
@@ -37,12 +44,15 @@ class Post(models.Model):
     favorites = models.BooleanField(default=False)
     cooked = models.BooleanField(default=False)
     is_published = models.BooleanField(default=True)
-    views = models.IntegerField(default=0, verbose_name='Views')
+    views = models.PositiveIntegerField(default=0, verbose_name='Views')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='posts')
     tags = models.ManyToManyField(Tag, blank=True, related_name='posts')
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('post', kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ['-id']

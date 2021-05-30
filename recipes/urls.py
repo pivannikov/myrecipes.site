@@ -4,5 +4,13 @@ from .views import *
 
 
 urlpatterns = [
-    path('', index, name='home')
+    # path('', Start.as_view(), name='start'),
+    path('', Home.as_view(), name='home'),
+    path('category/<str:slug>/', PostsByCategory.as_view(), name='category'),
+    path('tag/<str:slug>/', PostsByTag.as_view(), name='tag'),
+    path('recipe/<str:slug>/', ShowPost.as_view(), name='post'),
+    path('search/', Search.as_view(), name='search'),
+    path('favorites/', PostsByFavorites.as_view(), name='favorites'),
+    path('cooked/', PostsByCooked.as_view(), name='cooked'),
+
 ]

@@ -219,7 +219,7 @@ module.exports = function(XRegExp) {
 
     /**
      * Returns an array of match strings between outermost left and right delimiters, or an array of
-     * objects with detailed match parts and position data. An error is thrown if delimiters are
+     * objects with detailed match inc and position data. An error is thrown if delimiters are
      * unbalanced within the data.
      *
      * @memberOf XRegExp
@@ -249,7 +249,7 @@ module.exports = function(XRegExp) {
      * // {name: 'between', value: ' example',       start: 33, end: 41}
      * // ]
      *
-     * // Omitting unneeded parts with null valueNames, and using escapeChar
+     * // Omitting unneeded inc with null valueNames, and using escapeChar
      * str = '...{1}.\\{{function(x,y){return {y:x}}}';
      * XRegExp.matchRecursive(str, '{', '}', 'g', {
      *   valueNames: ['literal', null, 'value', null],
@@ -3388,7 +3388,7 @@ XRegExp.prototype = new RegExp();
 // ==--------------------------==
 
 /**
- * The XRegExp version number as a string containing three dot-separated parts. For example,
+ * The XRegExp version number as a string containing three dot-separated inc. For example,
  * '2.0.0-beta-3'.
  *
  * @static

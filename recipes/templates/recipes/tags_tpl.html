@@ -1,0 +1,5 @@
+<div class="d-flex flex-wrap justify-content-start mt-2">
+    {% for tag in tags %}
+        <a class="btn custom_tag btn-sm me-1 mt-1" href="{{ tag.get_absolute_url }}" role="button">{{ tag.title }}</a>
+    {% endfor %}
+</div>

@@ -5,18 +5,18 @@
 
 {% block content %}
 
-{#{% include 'inc/_search.html' %}#}
+{% include 'inc/_search.html' %}
 
 <div class="row">
     <div class="col-md-12 ms-3">
-        {% ifnotequal title 'A&Recipes' %}
+        {% ifnotequal title 'Recipes' %}
             <h3>{{ title }}</h3>
         {% endifnotequal %}
     </div>
 </div>
 <div class="row min-vh-100">
     {% for post in posts %}
-        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 p-1">
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 col-12 p-1">
             <div class="card m-3 border-0 shadow">
                 <div class="wrap_images">
                     {% if post.main_photo %}
@@ -29,7 +29,8 @@
                     <h6 class="card-title">{{ post.title }}</h6>
                     <div class="d-flex justify-content-between">
                         <span><a class="text-muted" href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></span>
-    {#                    <span class="text-muted">{{ post.created_at|date:"j E Y" }}</span>#}
+                        <span class="text-muted">{{ post.created_at|date:"j E Y" }}</span>
+                        <span class="text-muted">{{ post.views }}</span>
                     </div>
                     <div>
                         <span>
@@ -60,7 +61,6 @@
 
 </div>
 
-{#{% include 'inc/_pagination.html' %}#}
+{% include 'inc/_pagination.html' %}
 
 {% endblock %}
-

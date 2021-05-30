@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'recipes.apps.RecipesConfig',
     'debug_toolbar',
     'ckeditor',
+    'ckeditor_uploader',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [

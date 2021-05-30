@@ -3,7 +3,11 @@
 
 a {
     text-decoration: none;
-    color: #0d48c9;
+    color: #994b7f;
+}
+
+a:hover {
+    color: #60365e;
 }
 
 .card:hover{
@@ -14,7 +18,7 @@ a {
 .pagination > li > a
 {
     background-color: white;
-    color: #0d48c9;
+    color: #37474f;
 }
 
 .pagination > li > a:focus,
@@ -22,22 +26,23 @@ a {
 .pagination > li > span:focus,
 .pagination > li > span:hover
 {
-    color: #5a5a5a;
+    color: #37474f;
     background-color: #eee;
     border-color: #ddd;
+    box-shadow: 0 0 0 0.2rem rgba(180, 180, 180, 0.5);
 }
 
 .pagination > .active > a
 {
     color: white;
-    background-color: #0d48c9 !Important;
-    border: solid 1px #0d48c9 !Important;
+    background-color: #37474f !Important;
+    border: solid 1px #37474f !Important;
 }
 
 .pagination > .active > a:hover
 {
-    background-color: #0d48c9 !Important;
-    border: solid 1px #0d48c9;
+    background-color: #37474f !Important;
+    border: solid 1px #37474f;
 }
 
 .uncolored_img {
@@ -53,68 +58,63 @@ a {
 
 
 
-.navbar{
-    background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(13,146,146,1) 33%, rgb(13,14,244) 66%, rgb(1, 1, 121) 100%);
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
 .navbar-brand {
     color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
     transition: 0.7s;
 }
-.navbar-brand:hover{
-    color: #000851;
-}
 
-#navbarDropdownMenuLink_1,
-#navbarDropdownMenuLink_2,
-#navbarDropdownMenuLink_3,
-#navbarDropdownMenuLink_4,
-#navbarDropdownMenuLink_5,
-#navbarDropdownMenuLink_6,
-#navbarDropdownMenuLink_7
-{
+#navbarDropdownMenuLink {
     color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
-#navbarDropdownMenuLink_1:hover {
-    color: #0a2f84;
-}
-#navbarDropdownMenuLink_2:hover {
-    color: #0a2f84;
-}
-#navbarDropdownMenuLink_3:hover {
-    color: #01f9f9;
-}
-#navbarDropdownMenuLink_4:hover {
-    color: #01f9f9;
-}
-#navbarDropdownMenuLink_5:hover {
-    color: #01f9f9;
-}
-#navbarDropdownMenuLink_6:hover {
-    color: #01f9f9;
-}
-#navbarDropdownMenuLink_7:hover {
-    color: #01f9f9;
+#navbarDropdownMenuLink:hover {
+    color: #004d40;
 }
 
-.custom_tag_bg {
-    background-color: #05d3d3;
-}
-.custom_tag_bg:hover {
-    background-color: #0d7fa0;
+.custom_tag {
+    background-color: #994b7f;
+    outline: none;
+    color: #fff;
 }
 
-.custom_btn_back_bg {
-    background-color: #0c0de8;
+.custom_btn_back {
+    background-color: #78909c;
+    outline: none;
+    color: #fff;
 }
-.custom_btn_back_bg:hover {
-    background-color: #05d5d5;
-    color: white;
+.custom_btn_back:hover {
+    background-color: #37474f;
+    color: #fff;
 }
+.custom_btn_back:active,
+.custom_btn_back:focus {
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(168, 168, 168, 0.5);
+}
+
+.custom_tag:hover {
+    background-color: #60365e;
+    color: #fff;
+}
+.custom_tag:active,
+.custom_tag:focus,
+.custom_btn_back:active,
+.custom_btn_back:focus
+{
+    color: #fff;
+    box-shadow: 0 0 0 0.2rem rgba(153, 75, 127, 0.5);
+}
+
+.dropdown-item:active,
+.dropdown-item:focus
+{
+    background-color: #60365e;
+    color: #fff;
+}
+
 
 /*pagination*/
 @media (max-width: 635px) {

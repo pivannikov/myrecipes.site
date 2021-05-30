@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load highlight_search_tag %}
+{% load  static %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    {% if posts %}
+        <h3 class="m-3 text-muted">Found: {{ posts.count }}</h3>
+    {% else %}
+        <h3 class="m-3">No results were found for your request!</h3>
+        <div class="row ms-1">
+            <div class="col">
+                <a class="btn custom_btn_back btn-lg" href="{{request.META.HTTP_REFERER}}" role="button">Back</a>
+
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="row min-vh-100">
+        {% for post in posts %}
+            <div class="col-12 m-1">
+                  <div class="card-body">
+                    <a href="{{ post.get_absolute_url }}"><h4 class="card-title">{{ post.title|safe|highlight_search:search_word }}</h4></a>
+                    <p class="text-muted">{{ post.category.section }} / {{ post.category }} / ID: {{ post.id }}</p>
+                    <p class="card-text"><small class="text-muted">Ingredients: </small>{{ post.ingredients|striptags|highlight_search:search_word }}</p>
+                      <p class="card-text"><small class="text-muted">Description: </small>{{ post.content|striptags|highlight_search:search_word }}</p>
+                  </div>
+                  <hr>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% include 'inc/_pagination.html' %}
+
+{% endblock %}
