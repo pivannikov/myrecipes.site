@@ -1,8 +1,10 @@
 from django.contrib.auth.views import LoginView
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.db.models import Q, F
 
 from recipes.models import Post, Category, Tag, PostImage
+from .forms import PostForm
 
 
 class Start(LoginView):
@@ -69,6 +71,21 @@ class ShowPost(DetailView):
         self.object.save()
         self.object.refresh_from_db()
         return context
+
+
+def add_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            # post = Post.objects.create(**form.cleaned_data)
+            post = form.save()
+            return redirect(post)
+
+    else:
+        form = PostForm()
+    return render(request, 'recipes/add_post.html', {'form': form})
+
+
 
 
 class Search(ListView):

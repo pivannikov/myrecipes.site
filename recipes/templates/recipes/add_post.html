@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block title %}Add recipe{% endblock %}
+
+{% block content %}
+    <div class="row min-vh-100">
+        <h2>Add recipe:</h2>
+
+        <form action="{% url 'add_post' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary btn-block">Add recipe</button>
+        </form>
+    </div>
+{% endblock %}
